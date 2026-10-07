@@ -1,0 +1,31 @@
+[project]
+name = "ev-charging-simulator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "plotly>=7.1.0",
+    "polars>=2.0.0",
+    "fastexcel>=0.12",
+    "pydantic>=2.10",
+]
+
+[dependency-groups]
+dev = [
+    "marimo>=0.25.1",
+    "pymupdf>=1.25",
+    "pytest>=8.3",
+    "ruff>=0.16.10",
+    "ty>=0.0.84",
+]
+
+[build-system]
+requires = ["uv_build>=0.8,<1"]
+build-backend = "uv_build"
+
+[tool.ruff.lint.per-file-ignores]
+# marimo cells end in a bare expression (the output) and a return.
+"app.py" = ["B018", "PLR1711"]
